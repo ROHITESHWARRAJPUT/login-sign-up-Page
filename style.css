@@ -11,7 +11,35 @@ body{
         min-height: 100vh;
         background:#081b29;
 }
+.join-now{
+    width:250px;
+    height: 50px;
+    background-color: #0ef;
+    border-radius:25px 25px 0 0 ;
+    text-align: center;
+    color: #4f0303;
+    font-size: 35px;
+    padding: 5px 10px;
+    font-weight: 600;
+    /* filter: drop-shadow(25px 25px 2px white); */
+    -webkit-box-reflect: below 15px linear-gradient(to top,transparent,rgba(255, 255, 255, 0.589));
+    box-shadow: 0px 0px 10px 2px #0ef;
+    transition: 0.5s;
+    cursor: pointer;
+    position: absolute;
+
+                
+}
+.join-now:hover{
+    box-shadow: 0px 0px 5px 1px #0ef,
+                0px 0px 10px 2px #0ef,
+                0px 0px 20px 5px #0ef,
+                0px 0px 30px 10px rgba(0, 238, 255, 0.459);
+    transform: scale(1.1);
+}
+
 .wrapper {
+    visibility: hidden;
     position: relative;
     width: 750px;
     height: 450px;
@@ -19,6 +47,44 @@ body{
     border: 2px solid #0ef;
     overflow: hidden;
     box-shadow: 0 0 25px #0ef;
+    
+}
+.active-wrapper{
+    visibility: visible;
+    transition: 0.5s;
+    animation: fall 0.8s linear 1;
+}
+@keyframes fall {
+    0%{
+        transform: rotate(90deg);
+        transform-origin: bottom right;
+        opacity: 0;
+    }
+    70%{
+        transform: rotate(0deg) translateX(-50px);
+        transform-origin: bottom right;
+
+    }
+    75%{
+        transform:translateX(50px);
+        /* transform-origin: bottom right; */
+    }
+    80%{
+        transform:translateX(-50px);
+        /* transform-origin: bottom right; */
+    }
+    85%{
+        transform:translateX(50px);
+        /* transform-origin: bottom right; */
+    }
+    93%{
+        transform:translateX(-50px);
+        /* transform-origin: bottom right; */
+    }
+    100%{
+        transform:translateX(0px);
+        /* transform-origin: bottom right; */
+    }
 }
 .wrapper .form-box {
     position: absolute;
@@ -280,4 +346,37 @@ body{
     transform: rotate(-11deg) skewY(-41deg);
     transition-delay: 1.2s;
 
+}
+
+@media only screen and (max-width:600px){
+    .wrapper{
+        width:400px;
+        min-height:80vh;
+        border: 2px solid #0ef;
+        overflow: hidden;
+        box-shadow: 0 0 25px #0ef;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .form-box.login{
+        flex-basis: 100%;
+        display: block;
+        backdrop-filter: blur(25px);
+        width: 400px;
+        min-height: 100vh;
+        margin-top: 50px;
+        position: static;
+    }
+    .wrapper.active .form-box.register{
+        display: block;
+        backdrop-filter: blur(25px);
+        width: 400px;
+        min-height: 100vh;
+        margin-top: 50px;
+    }
+    .wrapper .info-text{
+        position: inherit;
+    }
+    
 }
